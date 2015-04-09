@@ -1,18 +1,12 @@
 #include "WatershedSegmentation.h"
 #include "DicomSeriesTo3dImage.h"
 #include "FolderReader.h"
-<<<<<<< HEAD
 #include "GaussianPyramid.h"
-=======
->>>>>>> c2b59aeea18c97ba4222effe37143790b9830f7b
+
 #include <stack>
 #include <string>
 
 void interactiveMode();
-<<<<<<< HEAD
-void downSample(string inputFile);
-=======
->>>>>>> c2b59aeea18c97ba4222effe37143790b9830f7b
 void threeDimensionDicomSeriesSegment();
 void twoDimensionDicomSeriesSegment();
 void segment3dImage();
@@ -21,10 +15,6 @@ void startSegmentation(string inputFile, string outputFile);
 int main(int argc, char ** argv)
 {	
 
-<<<<<<< HEAD
-	
-=======
->>>>>>> c2b59aeea18c97ba4222effe37143790b9830f7b
 	if(argc<5)
 	{
 		interactiveMode();
@@ -163,14 +153,10 @@ void startSegmentation(string inputFile, string outputFile)
 	cout<<"Enter the scale level:"<<endl;
 	cin>>level;
 
-<<<<<<< HEAD
 	GaussianPyramid gm = GaussianPyramid(inputFile, "down_sampled_"+inputFile);
 	gm.execute();
 
 	WatershedSegmentation seg ("down_sampled_"+inputFile, outputFile, threshold, level);
-=======
-	WatershedSegmentation seg (inputFile, outputFile, threshold, level);
->>>>>>> c2b59aeea18c97ba4222effe37143790b9830f7b
 
 	seg.performSegmentation();
 
