@@ -21,10 +21,11 @@ SET(APPLICATION_SOURCES
   FolderReader.cxx
   DicomSeriesTo3dImage.cxx
   GaussianPyramid.cxx
+  ImageCropper.cxx
   main.cxx
   )
 set(HEADER_FILES Segmentation.h  WatershedSegmentation.h FolderReader.h 
-DicomSeriesTo3dImage.h GaussianPyramid.h)
+DicomSeriesTo3dImage.h GaussianPyramid.h ImageCropper.h)
 
 
 find_package(ITK REQUIRED)
@@ -40,7 +41,7 @@ endif()
  
 add_library( ${HEADER_FILES})
 add_executable(WatershedSegment MACOSX_BUNDLE WatershedSegmentation.cxx FolderReader.cxx
-DicomSeriesTo3dImage.cxx main.cxx GaussianPyramid.cxx ${HEADER_FILES})
+DicomSeriesTo3dImage.cxx main.cxx GaussianPyramid.cxx ImageCropper.cxx ${HEADER_FILES})
 
 target_link_libraries(WatershedSegment
   ${Glue}  ${VTK_LIBRARIES} ${ITK_LIBRARIES})

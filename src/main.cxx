@@ -2,7 +2,7 @@
 #include "DicomSeriesTo3dImage.h"
 #include "FolderReader.h"
 #include "GaussianPyramid.h"
-
+#include "ImageCropper.h"
 #include <stack>
 #include <string>
 
@@ -155,6 +155,9 @@ void startSegmentation(string inputFile, string outputFile)
 
 	GaussianPyramid gm = GaussianPyramid(inputFile, "down_sampled_"+inputFile);
 	gm.execute();
+
+	ImageCropper cropper = ImageCropper( "down_sampled_"+inputFile, "down_sampled_"+inputFile);
+	cropper.crop();
 
 	WatershedSegmentation seg ("down_sampled_"+inputFile, outputFile, threshold, level);
 
