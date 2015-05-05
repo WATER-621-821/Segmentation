@@ -11,6 +11,7 @@ void threeDimensionDicomSeriesSegment();
 void twoDimensionDicomSeriesSegment();
 void segment3dImage();
 void startSegmentation(string inputFile, string outputFile);
+double sec();
 
 int main(int argc, char ** argv)
 {	
@@ -171,3 +172,7 @@ void startSegmentation(string inputFile, string outputFile)
 	cout<<"Time for Segmentation: "<<(time1-time0)<<" secs"<<endl;
 }
 
+double sec()
+{
+	return (double)clock()/(double)CLOCKS_PER_SEC;
+}
