@@ -147,6 +147,8 @@ void startSegmentation(string inputFile, string outputFile)
 {
 	float threshold;
 	float level;
+	double time0, time1;
+	time0=0; time1=0;
 
 	cout<<"Enter the lower threshold level :"<<endl;
 	cin>>threshold;
@@ -158,10 +160,14 @@ void startSegmentation(string inputFile, string outputFile)
 
 	ImageCropper cropper = ImageCropper( "down_sampled_"+inputFile, "down_sampled_"+inputFile);
 	cropper.crop();
-
+	
 	WatershedSegmentation seg ("down_sampled_"+inputFile, outputFile, threshold, level);
 
+	time0 = sec();
+	//cout<<"Starting Segmentation\n";
 	seg.performSegmentation();
+	time1 = sec();
 
+	cout<<"Time for Segmentation: "<<(time1-time0)<<" secs"<<endl;
 }
 
